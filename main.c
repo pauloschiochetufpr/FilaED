@@ -11,7 +11,7 @@ void testar_atendimento() {
     FilaClientes fila_banco;
     fila_init_clientes(&fila_banco);
 
-    Cliente c1 = {1, "João Silva", 5};
+    Cliente c1 = {1, "Joao Silva", 5};
     Cliente c2 = {2, "Maria Santos", 3};
     Cliente c3 = {3, "Pedro Oliveira", 8};
     Cliente c4 = {4, "Ana Costa", 2};
@@ -30,7 +30,7 @@ void testar_atendimento() {
 }
 
 void testar_palindromo() {
-    printf("\n2. VERIFICADOR DE PALÍNDROMOS\n");
+    printf("\n2. VERIFICADOR DE PALINDROMOS\n");
     printf("-----------------------------\n");
     
     char* palavras[] = {
@@ -46,7 +46,7 @@ void testar_palindromo() {
     
     for (int i = 0; i < num_palavras; i++) {
         bool resultado = eh_palindromo(palavras[i]);
-        printf("'%s' %s palíndromo\n", palavras[i], resultado ? "É" : "NÃO é");
+        printf("'%s' %s palindrome\n", palavras[i], resultado ? "eh" : "nao eh");
     }
 }
 
@@ -57,11 +57,11 @@ void testar_prioridade() {
     FilaPrioridade fila_prioridade;
     fila_init_prioridade(&fila_prioridade);
     
-    ItemPrioridade item1 = {{1, "Cliente Normal", 5}, 3};      // Baixa
-    ItemPrioridade item2 = {{2, "Cliente VIP", 3}, 1};         // Alta
-    ItemPrioridade item3 = {{3, "Cliente Premium", 4}, 2};     // Média
-    ItemPrioridade item4 = {{4, "Cliente Urgente", 2}, 1};     // Alta
-    ItemPrioridade item5 = {{5, "Cliente Comum", 6}, 3};       // Baixa
+    ItemPrioridade item1 = {{1, "Cliente Normal", 5}, 3};
+    ItemPrioridade item2 = {{2, "Cliente VIP", 3}, 1};
+    ItemPrioridade item3 = {{3, "Cliente Premium", 4}, 2};
+    ItemPrioridade item4 = {{4, "Cliente Urgente", 2}, 1};
+    ItemPrioridade item5 = {{5, "Cliente Comum", 6}, 3};
     
     printf("\nAdicionando clientes na fila de prioridade:\n");
     fila_enqueue_prioridade(&fila_prioridade, item1);
@@ -75,18 +75,17 @@ void testar_prioridade() {
     printf("Atendendo por prioridade:\n");
     while (!fila_vazia_prioridade(&fila_prioridade)) {
         ItemPrioridade item = fila_dequeue_prioridade(&fila_prioridade);
-        char* nivel[] = {"", "ALTA", "MÉDIA", "BAIXA"};
-        printf("→ Atendendo: %s (Prioridade: %s)\n", 
+        char* nivel[] = {"", "ALTA", "MEDIA", "BAIXA"};
+        printf("-> Atendendo: %s (Prioridade: %s)\n", 
                item.dado.nome, nivel[item.prioridade]);
     }
 }
 
 int main() {
-    printf("--- EXERCÍCIOS DE IMPLEMENTAÇÃO DE FILAS ---\n\n");
-    
+    printf("--- EXERCICIOS DE IMPLEMENTACAO DE FILAS ---\n\n");
     testar_atendimento();
     testar_palindromo();
     testar_prioridade();
-    
+    printf("\nExecucao finalizada.\n");
     return 0;
 }
